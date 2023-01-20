@@ -13,19 +13,11 @@
       </div>
       <hr />
       <div class="d-flex justify-content-between align-items-center">
-        <div v-if="item.author" class="d-flex align-items-center">
-          <img
-            :src="item.author.image"
-            :alt="item.author.username"
-            class="rounded-circle "
-            width="40"
-            height="40"
-          />
-          <div class="d-flex flex-column ml-2">
-            <span>{{ item.author.username }}</span>
-            <small>{{ getDate(item.createdAt) }}</small>
-          </div>
-        </div>
+        <AuthorBoxVue
+          v-if="item.author"
+          :item="item.author"
+          :created-at="item.createdAt"
+        />
 
         <b-button :to="`/article/${item.slug}`">
           ReadMore
@@ -36,19 +28,15 @@
 </template>
 
 <script>
-const moment = require('moment')
+import AuthorBoxVue from './AuthorBox.vue'
 
 export default {
+  components: { AuthorBoxVue },
   props: {
     item: {
       // eslint-disable-next-line vue/require-valid-default-prop
       default: {},
       type: Object
-    }
-  },
-  methods: {
-    getDate(date) {
-      return moment(date).format('DD-MM-YYYY [at] hh:mm')
     }
   }
 }
