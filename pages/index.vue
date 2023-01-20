@@ -3,10 +3,10 @@
     <Intro />
     <br />
     <b-row>
-      <b-col sm="9">
+      <b-col md="9" sm="8">
         <Feed :title="'Global Feed'" />
       </b-col>
-      <b-col sm="3">
+      <b-col md="3" sm="4">
         <div class="sticky">
           <Tags :title="'Popular Tags'" />
         </div>
