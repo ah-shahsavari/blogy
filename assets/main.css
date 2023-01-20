@@ -1,0 +1,21 @@
+.h-screen {
+  min-height: 100vh;
+}
+.title-bar {
+  font-size: 1.5rem;
+}
+.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 80px;
+}
+
+.page-item.active .page-link {
+  background-color: #383b3f !important;
+  border-color: #383b3f !important;
+  outline: #383b3f;
+  box-shadow: 0 0 0 3px rgba(56, 59, 63, 0.25);
+}
+.page-item .page-link {
+  color: #383b3f;
+}
