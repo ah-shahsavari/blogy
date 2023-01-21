@@ -12,7 +12,6 @@ export const getters = {
 export const mutations = {
   SET_USER(state, user) {
     state.user = user
-    state.user_token = user.token
   }
 }
 

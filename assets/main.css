@@ -19,3 +19,9 @@
 .page-item .page-link {
   color: #383b3f;
 }
+.b-toaster.b-toaster-top-right .b-toaster-slot,
+.b-toaster.b-toaster-top-left .b-toaster-slot,
+.b-toaster.b-toaster-top-center .b-toaster-slot,
+.b-toaster.b-toaster-top-full .b-toaster-slot {
+  top: 4rem !important;
+}
