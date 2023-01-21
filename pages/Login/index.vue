@@ -4,12 +4,8 @@
       <b-col sm="8" md="5">
         <b-card class="">
           <b-card-body>
-            <h3 class="mb-3">
-              Login
-            </h3>
-            <nuxt-link :to="'/register'">
-              Need an account?
-            </nuxt-link>
+            <h3 class="mb-3">Login</h3>
+            <nuxt-link :to="'/register'"> Need an account? </nuxt-link>
             <hr />
             <b-form @submit.prevent="login()">
               <label for="email">Email</label>
@@ -60,6 +56,7 @@ export default {
           path: '/',
           maxAge: 60 * 60 * 24 * 7
         })
+        this.$router.go(0)
       })
     }
   }
