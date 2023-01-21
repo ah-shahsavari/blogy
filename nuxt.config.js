@@ -31,7 +31,7 @@ export default {
     '@/plugins/mixin.js',
     '@/plugins/axios.js',
     // { src: '~/plugins/persistedstate.js', ssr: false }
-    { src: '~/plugins/vuex-persist', ssr: false }
+    { src: '~/plugins/persistedState.client.js' }
   ],
 
   /*

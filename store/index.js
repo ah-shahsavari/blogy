@@ -1,6 +1,5 @@
 export const state = () => ({
-  user: {},
-  user_token: ''
+  user: {}
 })
 
 export const getters = {
