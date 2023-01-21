@@ -29,7 +29,7 @@ export default {
    */
   plugins: [
     '@/plugins/mixin.js',
-    // '@/plugins/axios.js',
+    '@/plugins/axios.js',
     // { src: '~/plugins/persistedstate.js', ssr: false }
     { src: '~/plugins/vuex-persist', ssr: false }
   ],
@@ -83,6 +83,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    // extend(config, ctx) { },
+    postcss: null
   }
 }
