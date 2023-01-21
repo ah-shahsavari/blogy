@@ -27,7 +27,12 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/mixin.js', '@/plugins/axios.js'],
+  plugins: [
+    '@/plugins/mixin.js',
+    // '@/plugins/axios.js',
+    // { src: '~/plugins/persistedstate.js', ssr: false }
+    { src: '~/plugins/vuex-persist', ssr: false }
+  ],
 
   /*
    ** Nuxt.js dev-modules
@@ -44,6 +49,7 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    'cookie-universal-nuxt',
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage

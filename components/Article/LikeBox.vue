@@ -1,18 +1,23 @@
 <template>
   <b-button @click="like()" variant="outline-dark">
     <span>{{ count }}</span>
-    <BIconHeartFill class="align-middle" font-scale=".95" />
+    <BIconHeart v-if="!liked" class="align-middle ml-1" font-scale=".95" />
+    <BIconHeartFill v-else class="align-middle ml-1" font-scale=".95" />
   </b-button>
 </template>
 
 <script>
-import { BIconHeartFill } from 'bootstrap-vue'
+import { BIconHeartFill, BIconHeart } from 'bootstrap-vue'
 export default {
-  components: { BIconHeartFill },
+  components: { BIconHeartFill, BIconHeart },
   props: {
     count: {
       default: 0,
       type: Number
+    },
+    liked: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {

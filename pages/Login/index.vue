@@ -41,6 +41,7 @@
 
 <script>
 export default {
+  middleware: 'auth',
   data() {
     return {
       model: {
@@ -52,8 +53,14 @@ export default {
     }
   },
   methods: {
-    async login() {
-      await this.$axios.$post('/users/login', this.model)
+    login() {
+      this.$axios.$post('/users/login', this.model).then((res) => {
+        this.$store.dispatch('auth', res.user)
+        this.$cookies.set('token', res.user.token, {
+          path: '/',
+          maxAge: 60 * 60 * 24 * 7
+        })
+      })
     }
   }
 }

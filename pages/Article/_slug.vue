@@ -1,6 +1,6 @@
 <template>
   <div v-if="item">
-    <b-jumbotron fluid>
+    <b-jumbotron fluid class="pb-4">
       <h1>{{ item.title }}</h1>
       <hr />
       <div class="d-flex justify-content-between">
@@ -22,6 +22,7 @@
             :count="item.favoritesCount"
             v-b-tooltip.hover
             title="Like this article"
+            :liked="item.favorited"
           />
         </div>
       </div>
