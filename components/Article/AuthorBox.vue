@@ -3,7 +3,7 @@
     <img
       :src="item.image"
       :alt="item.username"
-      class="rounded-circle "
+      class="rounded-circle"
       width="40"
       height="40"
     />
