@@ -4,11 +4,13 @@
       <b-col sm="9" order-sm="1" order="2">
         <b-tabs pills>
           <b-tab title="Your Feed" active>
-            <b-card-text> <Feed /></b-card-text>
+            <b-card-text>
+              <Feed :server="'/articles?favorited=ah_shahsavari&'" />
+            </b-card-text>
           </b-tab>
           <b-tab title="Global Feed">
             <b-card-text>
-              <Feed :server="'/articles?favorited=ah_shahsavari&'" />
+              <Feed />
             </b-card-text>
           </b-tab>
         </b-tabs>
