@@ -28,14 +28,14 @@ export default {
   },
   async fetch() {
     this.items = await this.$axios.$get(
-      '/articles' + `?limit=${this.perPage}&offset=${this.currentPage}`
+      '/articles' + `?limit=${this.perPage}&offset=${this.currentPage - 1}`
     )
     this.rows = this.items.articlesCount
   },
   data() {
     return {
       items: [],
-      currentPage: 0,
+      currentPage: 1,
       rows: null,
       perPage: 10
     }
