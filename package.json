@@ -1,7 +1,7 @@
 {
-  "name": "yasna-blog",
+  "name": "blogy",
   "version": "1.0.0",
-  "description": "My mind-blowing Nuxt.js project",
+  "description": "blogy is the online blog platform :)",
   "author": "AmirHossein Shahsavari",
   "private": true,
   "scripts": {
