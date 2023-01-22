@@ -9,6 +9,12 @@
   position: sticky;
   top: 80px;
 }
+.empty-box .card-body {
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .page-item.active .page-link {
   background-color: #383b3f !important;
