@@ -9,6 +9,10 @@ export default function({ $axios, store }) {
     })
   }
   $axios.onRequest((config) => {
+    if (store.getters.getUser) {
+      // eslint-disable-next-line dot-notation
+      config.headers.common['Authorization'] = `Token ${store.getters.getUser}`
+    }
     store._vm.$nextTick(() => {
       store._vm.$nuxt.$loading.start()
     })
@@ -19,7 +23,7 @@ export default function({ $axios, store }) {
       store._vm.$nuxt.$loading.finish()
     })
     if (res.status === 200 && res.config.method === 'put') {
-      alertBox('Added successfully', 'success')
+      alertBox('Updated successfully', 'success')
     } else if (res.status === 200 && res.config.method === 'post') {
       alertBox('Done successfully', 'success')
     } else if (res.status === 200 && res.config.method === 'delete') {
