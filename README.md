@@ -1,7 +1,8 @@
-# yasna-blog
+# blogy
 
 > My mind-blowing Nuxt.js project
-
+## Backend API reference
+check out [realworld](https://github.com/gothinkster/realworld).
 ## Build Setup
 
 ```bash
