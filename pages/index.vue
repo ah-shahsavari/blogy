@@ -8,6 +8,11 @@
       </b-col>
       <b-col md="3" sm="4">
         <div class="sticky">
+          <profile-card
+            v-if="user"
+            :item="user"
+            class="mb-4 d-sm-block d-none"
+          />
           <Tags :title="'Popular Tags'" />
         </div>
       </b-col>
@@ -18,10 +23,15 @@
 <script>
 import Feed from '~/components/Article/Feed.vue'
 import Intro from '~/components/Intro.vue'
+import ProfileCard from '~/components/Profile/ProfileCard.vue'
 import Tags from '~/components/Tags.vue'
-
 export default {
-  components: { Intro, Feed, Tags }
+  components: { Intro, Feed, Tags, ProfileCard },
+  computed: {
+    user() {
+      return this.$store.state.user
+    }
+  }
 }
 </script>
 

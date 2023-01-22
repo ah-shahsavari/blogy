@@ -5,9 +5,9 @@
       <b-col sm="8" md="5">
         <b-card class="">
           <b-card-body>
-            <h2 class="mb-3">
+            <h3 class="mb-3">
               Sign up
-            </h2>
+            </h3>
             <nuxt-link :to="'/login'">
               Have an account?
             </nuxt-link>
@@ -53,7 +53,7 @@
 
 <script>
 export default {
-  middleware: 'auth',
+  middleware: 'login',
   data() {
     return {
       model: {

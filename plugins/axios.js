@@ -1,12 +1,18 @@
-// const alertBox = (text, mode) => {
-//   this.$bvToast.toast(`${text} `, {
-//     title: 'BootstrapVue Toast',
-//     autoHideDelay: 5000
-//   })
-// }
-
 export default function({ $axios, store }) {
+  const alertBox = (text, mode) => {
+    store._vm.$bvToast.toast(`${text} `, {
+      title: text,
+      variant: mode,
+      autoHideDelay: 5000,
+      toaster: 'b-toaster-top-left',
+      appendToast: true
+    })
+  }
   $axios.onRequest((config) => {
+    if (store.getters.getUser) {
+      // eslint-disable-next-line dot-notation
+      config.headers.common['Authorization'] = `Token ${store.getters.getUser}`
+    }
     store._vm.$nextTick(() => {
       store._vm.$nuxt.$loading.start()
     })
@@ -16,13 +22,12 @@ export default function({ $axios, store }) {
     store._vm.$nextTick(() => {
       store._vm.$nuxt.$loading.finish()
     })
-    // console.log(res.status)
     if (res.status === 200 && res.config.method === 'put') {
-      // alertBox('Product is updated succesful', 'success')
+      alertBox('Updated successfully', 'success')
     } else if (res.status === 200 && res.config.method === 'post') {
-      // alertBox('Product is added succesful', 'success')
+      alertBox('Done successfully', 'success')
     } else if (res.status === 200 && res.config.method === 'delete') {
-      // alertBox('Product is deleted succesful', 'error')
+      alertBox('Deleted successfully', 'success')
     }
   })
   $axios.onError((error) => {
@@ -30,10 +35,13 @@ export default function({ $axios, store }) {
       store._vm.$nuxt.$loading.finish()
     })
     if (error.response.status === 500) {
-      // alertBox('Sorry, server error ! ', 'error')
+      alertBox('Sorry, server error ! ', 'danger')
+    }
+    if (error.response.status === 403) {
+      alertBox('email or password is invalid !', 'danger')
     }
     if (error.response.status === 404) {
-      // alertBox('Item is not found! ', 'warning')
+      alertBox('Item is not found! ', 'warning')
     }
   })
 }
