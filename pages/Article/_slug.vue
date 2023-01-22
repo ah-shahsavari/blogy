@@ -11,16 +11,16 @@
         />
         <div class="d-flex">
           <b-button
+            v-b-tooltip.hover
             variant="outline-dark"
             class="mr-2"
-            v-b-tooltip.hover
             title="Follow the author"
           >
             Follow +
           </b-button>
           <like-box
-            :count="item.favoritesCount"
             v-b-tooltip.hover
+            :count="item.favoritesCount"
             title="Like this article"
             :liked="item.favorited"
           />
