@@ -8,7 +8,11 @@
       </b-col>
       <b-col md="3" sm="4">
         <div class="sticky">
-          <profile-card :item="user" v-if="user" class="mb-4" />
+          <profile-card
+            v-if="user"
+            :item="user"
+            class="mb-4 d-sm-block d-none"
+          />
           <Tags :title="'Popular Tags'" />
         </div>
       </b-col>

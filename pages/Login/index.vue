@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  middleware: 'auth',
+  middleware: 'login',
   data() {
     return {
       model: {
@@ -56,7 +56,7 @@ export default {
           path: '/',
           maxAge: 60 * 60 * 24 * 7
         })
-        this.$router.go(0)
+        this.$router.push('/')
       })
     }
   }
