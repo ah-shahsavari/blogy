@@ -1,0 +1,50 @@
+$primary-color: #383b3f;
+
+.h-screen {
+  min-height: 100vh;
+}
+.title-bar {
+  font-size: 1.5rem;
+}
+.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 80px;
+}
+.empty-box {
+  .card-body {
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.nav-pills {
+  .nav-link {
+    color: $primary-color;
+  }
+  .nav-link.active {
+    color: #fff;
+    background-color: $primary-color !important;
+  }
+  .show > .nav-link {
+    @extend .active;
+  }
+}
+
+.page-item.active .page-link {
+  background-color: $primary-color !important;
+  border-color: $primary-color !important;
+  outline: $primary-color;
+  box-shadow: 0 0 0 3px rgba(56, 59, 63, 0.25);
+}
+.page-item .page-link {
+  color: $primary-color;
+}
+.b-toaster.b-toaster-top-right .b-toaster-slot,
+.b-toaster.b-toaster-top-left .b-toaster-slot,
+.b-toaster.b-toaster-top-center .b-toaster-slot,
+.b-toaster.b-toaster-top-full .b-toaster-slot {
+  top: 4rem !important;
+}

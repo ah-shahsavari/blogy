@@ -23,7 +23,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/main.css'],
+  css: ['@/assets/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -31,7 +31,7 @@ export default {
     '@/plugins/mixin.js',
     '@/plugins/axios.js',
     // { src: '~/plugins/persistedstate.js', ssr: false }
-    { src: '~/plugins/vuex-persist', ssr: false }
+    { src: '~/plugins/persistedState.client.js' }
   ],
 
   /*

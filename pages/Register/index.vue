@@ -5,14 +5,14 @@
       <b-col sm="8" md="5">
         <b-card class="">
           <b-card-body>
-            <h2 class="mb-3">
+            <h3 class="mb-3">
               Sign up
-            </h2>
+            </h3>
             <nuxt-link :to="'/login'">
               Have an account?
             </nuxt-link>
             <hr />
-            <b-form @submit.prevent="login()">
+            <b-form @submit.prevent="register()">
               <label for="username">Username</label>
               <b-input
                 v-model="model.user.username"
@@ -53,7 +53,7 @@
 
 <script>
 export default {
-  middleware: 'auth',
+  middleware: 'login',
   data() {
     return {
       model: {
@@ -66,8 +66,18 @@ export default {
     }
   },
   methods: {
-    async login() {
-      await this.$axios.$post('/users', this.model)
+    async register() {
+      await this.$axios
+        .$post('/users', this.model)
+        .then((res) => {
+          this.$store.dispatch('auth', res.user)
+          this.$cookies.set('token', res.user.token, {
+            path: '/',
+            maxAge: 60 * 60 * 24 * 7
+          })
+          this.$router.push('/')
+        })
+        .catch(() => {})
     }
   }
 }

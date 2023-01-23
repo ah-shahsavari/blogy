@@ -1,10 +1,11 @@
 <template>
   <b-container>
-    <Intro />
-    <br />
-    <b-row>
+    <b-row class="mt-4">
       <b-col md="9" sm="8">
-        <Feed :title="'Global Feed'" />
+        <Feed
+          :title="$route.params.slug"
+          :server="`/articles?tag=${$route.params.slug}&`"
+        />
       </b-col>
       <b-col md="3" sm="4">
         <div class="sticky">
@@ -22,11 +23,10 @@
 
 <script>
 import Feed from '~/components/Article/Feed.vue'
-import Intro from '~/components/Intro.vue'
 import ProfileCard from '~/components/Profile/ProfileCard.vue'
 import Tags from '~/components/Tags.vue'
 export default {
-  components: { Intro, Feed, Tags, ProfileCard }
+  components: { Feed, Tags, ProfileCard }
 }
 </script>
 

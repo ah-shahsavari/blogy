@@ -4,12 +4,8 @@
       <b-col sm="8" md="5">
         <b-card class="">
           <b-card-body>
-            <h3 class="mb-3">
-              Login
-            </h3>
-            <nuxt-link :to="'/register'">
-              Need an account?
-            </nuxt-link>
+            <h3 class="mb-3">Login</h3>
+            <nuxt-link :to="'/register'"> Need an account? </nuxt-link>
             <hr />
             <b-form @submit.prevent="login()">
               <label for="email">Email</label>
@@ -41,7 +37,7 @@
 
 <script>
 export default {
-  middleware: 'auth',
+  middleware: 'login',
   data() {
     return {
       model: {
@@ -54,13 +50,17 @@ export default {
   },
   methods: {
     login() {
-      this.$axios.$post('/users/login', this.model).then((res) => {
-        this.$store.dispatch('auth', res.user)
-        this.$cookies.set('token', res.user.token, {
-          path: '/',
-          maxAge: 60 * 60 * 24 * 7
+      this.$axios
+        .$post('/users/login', this.model)
+        .then((res) => {
+          this.$store.dispatch('auth', res.user)
+          this.$cookies.set('token', res.user.token, {
+            path: '/',
+            maxAge: 60 * 60 * 24 * 7
+          })
+          this.$router.push('/')
         })
-      })
+        .catch(() => {})
     }
   }
 }
