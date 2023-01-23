@@ -43,6 +43,9 @@ export default function({ $axios, store, redirect }) {
     if (error.response.status === 404) {
       alertBox('Item is not found! ', 'warning')
     }
+    if (error.response.status === 422) {
+      alertBox('Email or Username has already taken ', 'warning')
+    }
     if (error.response.status === 401) {
       alertBox(error.response.data.message, 'danger')
       redirect('/login')
