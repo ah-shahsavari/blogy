@@ -20,9 +20,10 @@
           </b-button>
           <like-box
             v-b-tooltip.hover
-            :count="item.favoritesCount"
             title="Like this article"
-            :liked="item.favorited"
+            :count.sync="item.favoritesCount"
+            :liked.sync="item.favorited"
+            :slug="$route.params.slug"
           />
         </div>
       </div>
