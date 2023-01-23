@@ -12,7 +12,7 @@
               Have an account?
             </nuxt-link>
             <hr />
-            <b-form @submit.prevent="login()">
+            <b-form @submit.prevent="register()">
               <label for="username">Username</label>
               <b-input
                 v-model="model.user.username"
@@ -66,8 +66,18 @@ export default {
     }
   },
   methods: {
-    async login() {
-      await this.$axios.$post('/users', this.model)
+    async register() {
+      await this.$axios
+        .$post('/users', this.model)
+        .then((res) => {
+          this.$store.dispatch('auth', res.user)
+          this.$cookies.set('token', res.user.token, {
+            path: '/',
+            maxAge: 60 * 60 * 24 * 7
+          })
+          this.$router.push('/')
+        })
+        .catch(() => {})
     }
   }
 }

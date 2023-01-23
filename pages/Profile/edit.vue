@@ -56,7 +56,7 @@
                     v-model="model.bio"
                     rows="9"
                     name="bio"
-                    placeholder="http://..."
+                    placeholder="Enter bio..."
                   />
                 </b-col>
               </b-row>

@@ -1,8 +1,12 @@
 <template>
   <div>
     <h3 class="title-bar">{{ title }}</h3>
-    <PostCard v-for="item in items.articles" :key="item.slug" :item="item" />
+    <PostCard v-for="item in items" :key="item.slug" :item="item" />
+    <b-card v-if="!items.length" class="empty-box">
+      <h2>There is nothing to display !</h2>
+    </b-card>
     <b-pagination
+      v-if="items.length"
       v-model="currentPage"
       :total-rows="rows"
       :per-page="perPage"
@@ -28,9 +32,10 @@ export default {
   },
   async fetch() {
     this.items = await this.$axios.$get(
-      '/articles' + `?limit=${this.perPage}&offset=${this.currentPage - 1}`
+      this.server + `?limit=${this.perPage}&offset=${this.currentPage - 1}`
     )
     this.rows = this.items.articlesCount
+    this.items = this.items.articles
   },
   data() {
     return {
@@ -47,5 +52,3 @@ export default {
   }
 }
 </script>
-
-<style></style>

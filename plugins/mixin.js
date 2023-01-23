@@ -7,6 +7,9 @@ Vue.mixin({
   computed: {
     isLogin() {
       return this.$cookies.get('token') || this.$store.getters.getUser
+    },
+    userInfo() {
+      return this.$store.state.user
     }
   },
   methods: {
