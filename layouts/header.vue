@@ -1,7 +1,7 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
   <b-navbar
-    toggleable="lg"
+    toggleable="sm"
     type="dark"
     variant="dark"
     sticky

@@ -32,7 +32,7 @@ export default {
   },
   async fetch() {
     this.items = await this.$axios.$get(
-      '/articles' + `?limit=${this.perPage}&offset=${this.currentPage - 1}`
+      this.server + `?limit=${this.perPage}&offset=${this.currentPage - 1}`
     )
     this.rows = this.items.articlesCount
     this.items = this.items.articles
