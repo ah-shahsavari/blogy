@@ -3,7 +3,12 @@
     <h3 class="title-bar">{{ title }}</h3>
     <b-card class="my-3 p-0 ">
       <b-card-body class="p-0">
-        <b-badge v-for="tag in items.tags" :key="tag" class="mx-1">
+        <b-badge
+          v-for="tag in items.tags"
+          :key="tag"
+          class="mx-1"
+          :to="`/tags/list/${tag}`"
+        >
           {{ tag }}
         </b-badge>
       </b-card-body>
