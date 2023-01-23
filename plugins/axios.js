@@ -1,4 +1,4 @@
-export default function({ $axios, store }) {
+export default function({ $axios, store, redirect }) {
   const alertBox = (text, mode) => {
     store._vm.$bvToast.toast(`${text} `, {
       title: text,
@@ -42,6 +42,10 @@ export default function({ $axios, store }) {
     }
     if (error.response.status === 404) {
       alertBox('Item is not found! ', 'warning')
+    }
+    if (error.response.status === 401) {
+      alertBox(error.response.data.message, 'danger')
+      redirect('/login')
     }
   })
 }

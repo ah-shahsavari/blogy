@@ -57,6 +57,11 @@ export default {
     return {
       model: {}
     }
+  },
+  methods: {
+    async addArticle() {
+      await this.$axios.$post('/articles', { article: { ...this.model } })
+    }
   }
 }
 </script>
